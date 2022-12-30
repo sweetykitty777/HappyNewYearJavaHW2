@@ -2,14 +2,13 @@ import java.io.*;
 import java.util.*;
 
 public class FileExplorer {
-    private int N = 10;
-    int n = 0;
+    private final int N = 10;
     private int[][] graph = new int[N][N];
-    private String path = "./src/root/";
+   final private String path = "./src/root/";
 
-    private Map<String, Integer> originNumbers = new HashMap<String, Integer>();
-    private Map<String, Integer> newNumbers = new HashMap<String, Integer>();
-    private Map<Integer, String> newNumbersMirror = new HashMap<Integer, String>();
+    private final Map<String, Integer> originNumbers = new HashMap<String, Integer>();
+    private final Map<String, Integer> newNumbers = new HashMap<String, Integer>();
+    private final Map<Integer, String> newNumbersMirror = new HashMap<Integer, String>();
 
     int lastNum = -1;
     public FileExplorer() {
@@ -21,25 +20,26 @@ public class FileExplorer {
     }
 
     public void createGraph() {
-        findFoldersAndFiles(this.path);
+        findFoldersAndFiles(path);
     }
 
-    public void printGraph() {
+   /* public void printGraph() {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 System.out.print(graph[i][j]);
             }
             System.out.println("");
         }
-    }
+    }*/
 
     private void findFoldersAndFiles(String pathToFile) {
         File place = new File(pathToFile);
-        System.out.println(pathToFile);
-        if (place.isDirectory()) {
+        if (place.exists() && place.isDirectory()) {
             File[] items = place.listFiles();
-            for (File item : items) { // а если null - видимо ничего
-                findFoldersAndFiles(item.getPath());
+            if (items != null) {
+                for (File item : items) {
+                    findFoldersAndFiles(item.getPath());
+                }
             }
         } else {
             FileReader fr = null;
@@ -67,7 +67,6 @@ public class FileExplorer {
                         if (!originNumbers.containsKey(address)) {
                             originNumbers.put(address, ++lastNum);
                         }
-                        System.out.println(originNumbers.get(pathToFile));
                         graph[originNumbers.get(pathToFile)][originNumbers.get(address)] = 1;
                     } else {
                         System.out.println("Some troubles with " + address);
@@ -97,7 +96,7 @@ public class FileExplorer {
     }
 
     public File[] sortFileNames() {
-        ArrayList<String> paths = new ArrayList(originNumbers.keySet());
+        ArrayList<String> paths = new ArrayList<>(originNumbers.keySet());
         File[] files = new File[lastNum + 1];
         for (int i = 0; i < paths.size(); i++) {
             File file = new File(paths.get(i));
@@ -121,9 +120,9 @@ public class FileExplorer {
     public void updateGraph() {
         File[] sorted = sortFileNames();
         int last = -1;
-        for (int i = 0; i < sorted.length; i++) {
-            newNumbers.put(sorted[i].getPath(), ++last);
-            newNumbersMirror.put(last, sorted[i].getPath());
+        for (File file : sorted) {
+            newNumbers.put(file.getPath(), ++last);
+            newNumbersMirror.put(last, file.getPath());
         }
         int[][] graphTemporary = new int[N][N];
         for (int i = 0; i < N; i++) {

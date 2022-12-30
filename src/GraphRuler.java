@@ -1,16 +1,16 @@
-import java.util.ArrayList;
 import java.util.Map;
 import java.util.Vector;
 
 public class GraphRuler {
-    private static int N = 10;
+    private static final int N = 10;
     private static int[][] graph = new int[N][N];
 
-    static int used[], flag, n, m;
+    static int[] used;
+    static int flag;
     static Vector<Integer> path = new Vector<Integer>();
 
     GraphRuler(int[][] graph) {
-        this.graph = graph;
+        GraphRuler.graph = graph;
         used = new int[N];
         for (int i = 0; i < N; i++) {
             used[i] = 0;
@@ -24,13 +24,12 @@ public class GraphRuler {
         path.add(v);
         for (int i = 0; i < N; i++) {
             if (graph[v][i] == 1) {
-                int to = i;
-                if (used[to] == 1) {
-                    path.add(to);
+                if (used[i] == 1) {
+                    path.add(i);
                     flag = 1;
                     return;
                 } else{
-                    dfs(to);
+                    dfs(i);
                 }
             }
             if (flag == 1)

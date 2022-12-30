@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42f0a7bf-a30f-4d21-b386-136f18f9a99a" name="Changes" comment="added sort by name">
+    <list default="true" id="42f0a7bf-a30f-4d21-b386-136f18f9a99a" name="Changes" comment="fixed loop checker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileExplorer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GraphRuler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphRuler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TopologicalSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TopologicalSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/folder1/file11.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/folder1/file11.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/root/folder2/file22.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/folder2/file22.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +22,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/FileExplorer.java" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -105,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672400451743</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed loop checker">
+      <created>1672401282390</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672401282390</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -126,6 +135,7 @@
     <MESSAGE value="added method preparing graph for topological sort" />
     <MESSAGE value="added topology sort" />
     <MESSAGE value="added sort by name" />
-    <option name="LAST_COMMIT_MESSAGE" value="added sort by name" />
+    <MESSAGE value="fixed loop checker" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed loop checker" />
   </component>
 </project>
