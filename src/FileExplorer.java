@@ -1,6 +1,5 @@
 import java.io.*;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class FileExplorer {
     private int N = 10;
@@ -65,5 +64,22 @@ public class FileExplorer {
                 }
             }
         }
+    }
+
+    public void solve() {
+        GraphRuler rule = new GraphRuler(graph);
+        if (!rule.findLoop()) {
+            System.out.println("No loops!");
+        } else {
+            System.out.println("OMG WE CAN NOT SOLVE IT");
+        }
+    }
+
+    public void sortFileNames() {
+        List sortedKeys = new ArrayList(originNumbers.keySet());
+        Collections.sort(sortedKeys); // i love stackoverflow
+    }
+    public void updateGraph() {
+
     }
 }
