@@ -1,0 +1,4 @@
+kfkdld
+require ./src/root/folder2/file21.txt
+aaaa
+require ./src/root/folder2/file22.txt
