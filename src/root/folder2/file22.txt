@@ -1,2 +1,1 @@
-require ./src/root/folder2/file11.txt
-require ./src/root/folder2/file21.txt
+require ./src/root/folder1/file11.txt

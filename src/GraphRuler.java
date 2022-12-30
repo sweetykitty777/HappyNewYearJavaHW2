@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Vector;
 
 public class GraphRuler {
@@ -6,7 +7,6 @@ public class GraphRuler {
     private static int[][] graph = new int[N][N];
 
     static int used[], flag, n, m;
-
     static Vector<Integer> path = new Vector<Integer>();
 
     GraphRuler(int[][] graph) {
@@ -23,14 +23,16 @@ public class GraphRuler {
         used[v] = 1;
         path.add(v);
         for (int i = 0; i < N; i++) {
-            int to = graph[v][i];
-            if (used[to] == 1) {
-                path.add(to);
-                flag = 1;
-                return;
+            if (graph[v][i] == 1) {
+                int to = i;
+                if (used[to] == 1) {
+                    path.add(to);
+                    flag = 1;
+                    return;
+                } else{
+                    dfs(to);
+                }
             }
-            else
-                dfs(to);
             if (flag == 1)
                 return;
         }
@@ -38,7 +40,7 @@ public class GraphRuler {
         path.remove(path.size() - 1);
     }
 
-    Boolean findLoop() {
+    Boolean findLoop(Map<Integer, String> names) {
         for (int i = 0; i < N; i++)
             if (used[i] == 0) {
                 dfs(i);
@@ -49,9 +51,9 @@ public class GraphRuler {
             int i = path.size() - 2;
             int to = path.lastElement();
             while (path.get(i) != to) i--;
-            System.out.println("looop!");
+            System.out.println("Loop:");
             for (; i < path.size() - 1; i++)
-                System.out.print(path.get(i) + " ");
+                System.out.print(names.get(path.get(i)) + " ");
             System.out.println();
             return true;
         } else {

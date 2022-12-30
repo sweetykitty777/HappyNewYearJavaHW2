@@ -10,7 +10,7 @@ public class TopologicalSort {
 
     void dfs (int v) {
         used[v] = 1;
-        for (int i=0; i < N; ++i) {
+        for (int i = 0; i < N; ++i) {
             if (graph[v][i] == 1) {
                 int to = i;
                 if (used[to] == 0) {

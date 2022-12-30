@@ -9,7 +9,6 @@ public class FileExplorer {
 
     private Map<String, Integer> originNumbers = new HashMap<String, Integer>();
     private Map<String, Integer> newNumbers = new HashMap<String, Integer>();
-
     private Map<Integer, String> newNumbersMirror = new HashMap<Integer, String>();
 
     int lastNum = -1;
@@ -39,7 +38,7 @@ public class FileExplorer {
         System.out.println(pathToFile);
         if (place.isDirectory()) {
             File[] items = place.listFiles();
-            for (File item : items) { // а если null
+            for (File item : items) { // а если null - видимо ничего
                 findFoldersAndFiles(item.getPath());
             }
         } else {
@@ -57,7 +56,7 @@ public class FileExplorer {
                 throw new RuntimeException(e);
             }
             while (line != null) {
-                if (line.startsWith("require")) { // проверить номер и null ли
+                if (line.startsWith("require")) { // проверить формат
                     String address = line.substring(8);
                     File reqFile = new File(address);
 
@@ -86,18 +85,15 @@ public class FileExplorer {
     public void solve() {
         GraphRuler rule = new GraphRuler(graph);
         updateGraph();
-        TopologicalSort a = new TopologicalSort(graph);
-        int[] ans = a.topological_sort();
-        for (int i = 0; i < lastNum + 1; i++) {
-            System.out.println(newNumbersMirror.get(ans[i]));
-        }
-       /* if (!rule.findLoop()) {
-            System.out.println("No loops!");
-            updateGraph();
+        if (!rule.findLoop(newNumbersMirror)) {
             TopologicalSort a = new TopologicalSort(graph);
+            int[] ans = a.topological_sort();
+            for (int i = 0; i < lastNum + 1; i++) {
+                System.out.println(newNumbersMirror.get(ans[i]));
+            }
         } else {
-            System.out.println("OMG WE CAN NOT SOLVE IT");
-        }*/
+            System.out.println("We can not solve it");
+        }
     }
 
     public File[] sortFileNames() {
