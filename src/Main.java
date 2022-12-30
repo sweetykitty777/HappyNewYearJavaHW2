@@ -4,6 +4,6 @@ public class Main {
         a.createGraph();
         a.printGraph();
         a.solve();
-        a.updateGraph();
+
     }
 }

@@ -9,6 +9,8 @@ public class FileExplorer {
     private Map<String, Integer> originNumbers = new HashMap<String, Integer>();
     private Map<String, Integer> newNumbers = new HashMap<String, Integer>();
 
+    private Map<Integer, String> newNumbersMirror = new HashMap<Integer, String>();
+
     int lastNum = -1;
     public FileExplorer() {
         for (int i = 0; i < N; i++) {
@@ -82,15 +84,22 @@ public class FileExplorer {
 
     public void solve() {
         GraphRuler rule = new GraphRuler(graph);
-        if (!rule.findLoop()) {
+        updateGraph();
+        TopologicalSort a = new TopologicalSort(graph);
+        int[] ans = a.topological_sort();
+        for (int i = 0; i < N; i++) {
+            System.out.println(newNumbersMirror.get(ans[i]));
+        }
+       /* if (!rule.findLoop()) {
             System.out.println("No loops!");
             updateGraph();
+            TopologicalSort a = new TopologicalSort(graph);
         } else {
             System.out.println("OMG WE CAN NOT SOLVE IT");
-        }
+        }*/
     }
 
-    public List<String> sortFileNames() {
+    public List<String> sortFileNames() { //НАПИСАТЬ НОРМАЛЬНЫЙ КОМПАРАТОР И АЦИКЛИЧНОСТЬ ЧЕК
         List<String> sortedKeys = new ArrayList(originNumbers.keySet());
         Collections.sort(sortedKeys); // i love stackoverflow
         return sortedKeys;
@@ -100,6 +109,7 @@ public class FileExplorer {
         int last = -1;
         for (int i = 0; i < sortee.size(); i++) {
             newNumbers.put(sortee.get(i), ++last);
+            newNumbersMirror.put(last, sortee.get(i));
         }
         int[][] graphTemporary = new int[N][N];
         for (int i = 0; i < N; i++) {

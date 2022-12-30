@@ -1,0 +1,2 @@
+aaaa
+require ./src/root/folder2/file21.txt
