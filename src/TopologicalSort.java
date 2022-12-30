@@ -27,9 +27,6 @@ public class TopologicalSort {
         for (int i = 0; i < N; ++i)
             if (used[i] == 0)
                 dfs(i);
-        for (int i = 0; i < N; i++) {
-            System.out.print(ans[i] + " ");
-        }
         return ans;
     }
 }

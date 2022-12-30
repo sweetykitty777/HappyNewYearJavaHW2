@@ -3,6 +3,7 @@ import java.util.*;
 
 public class FileExplorer {
     private int N = 10;
+    int n = 0;
     private int[][] graph = new int[N][N];
     private String path = "./src/root/";
 
@@ -87,7 +88,7 @@ public class FileExplorer {
         updateGraph();
         TopologicalSort a = new TopologicalSort(graph);
         int[] ans = a.topological_sort();
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < lastNum + 1; i++) {
             System.out.println(newNumbersMirror.get(ans[i]));
         }
        /* if (!rule.findLoop()) {
@@ -99,17 +100,34 @@ public class FileExplorer {
         }*/
     }
 
-    public List<String> sortFileNames() { //НАПИСАТЬ НОРМАЛЬНЫЙ КОМПАРАТОР И АЦИКЛИЧНОСТЬ ЧЕК
-        List<String> sortedKeys = new ArrayList(originNumbers.keySet());
-        Collections.sort(sortedKeys); // i love stackoverflow
-        return sortedKeys;
+    public File[] sortFileNames() {
+        ArrayList<String> paths = new ArrayList(originNumbers.keySet());
+        File[] files = new File[lastNum + 1];
+        for (int i = 0; i < paths.size(); i++) {
+            File file = new File(paths.get(i));
+            files[i] = file;
+        }
+        boolean isSorted = false;
+        File tmp;
+        while(!isSorted) {
+            isSorted = true;
+            for (int i = 0; i < files.length - 1; i++) {
+                if(files[i].getName().compareTo(files[i+1].getName()) > 0){
+                    isSorted = false;
+                    tmp = files[i];
+                    files[i] = files[i + 1]; // ну дааа пузыреек
+                    files[i + 1] = tmp;
+                }
+            }
+        }
+        return files;
     }
     public void updateGraph() {
-        List<String> sortee = sortFileNames();
+        File[] sorted = sortFileNames();
         int last = -1;
-        for (int i = 0; i < sortee.size(); i++) {
-            newNumbers.put(sortee.get(i), ++last);
-            newNumbersMirror.put(last, sortee.get(i));
+        for (int i = 0; i < sorted.length; i++) {
+            newNumbers.put(sorted[i].getPath(), ++last);
+            newNumbersMirror.put(last, sorted[i].getPath());
         }
         int[][] graphTemporary = new int[N][N];
         for (int i = 0; i < N; i++) {
@@ -125,9 +143,5 @@ public class FileExplorer {
             }
         }
         graph = graphTemporary;
-        printGraph();
-        for (Map.Entry<String, Integer> entry : originNumbers.entrySet()) {
-                System.out.println(entry.getKey() + " " + entry.getValue() + " " + newNumbers.get(entry.getKey()));
-        }
     }
 }
