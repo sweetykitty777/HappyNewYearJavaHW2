@@ -1,0 +1,2 @@
+aaaa
+require ./src/root/untitledfolder/a.txt

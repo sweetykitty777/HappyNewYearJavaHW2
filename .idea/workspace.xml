@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42f0a7bf-a30f-4d21-b386-136f18f9a99a" name="Changes" comment="added method finding all folders and files and saving connections between files">
-      <change afterPath="$PROJECT_DIR$/src/GraphRuler.java" afterDir="false" />
+    <list default="true" id="42f0a7bf-a30f-4d21-b386-136f18f9a99a" name="Changes" comment="added loop-finder and file-names-sorter">
+      <change afterPath="$PROJECT_DIR$/src/root/a.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/root/b.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/root/untitledfolder/a.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphRuler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphRuler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +37,15 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/Users/olga/IdeaProjects/JavaHW2/src/root/untitled folder"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/root/untitled folder" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src" />
     </key>
@@ -65,7 +75,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672392248102</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added loop-finder and file-names-sorter">
+      <created>1672393829531</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1672393829531</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -81,6 +98,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added method finding all folders and files and saving connections between files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added method finding all folders and files and saving connections between files" />
+    <MESSAGE value="added loop-finder and file-names-sorter" />
+    <option name="LAST_COMMIT_MESSAGE" value="added loop-finder and file-names-sorter" />
   </component>
 </project>

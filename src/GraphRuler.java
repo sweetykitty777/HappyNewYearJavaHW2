@@ -11,6 +11,10 @@ public class GraphRuler {
 
     GraphRuler(int[][] graph) {
         this.graph = graph;
+        used = new int[N];
+        for (int i = 0; i < N; i++) {
+            used[i] = 0;
+        }
     }
 
     static void dfs(int v) {
