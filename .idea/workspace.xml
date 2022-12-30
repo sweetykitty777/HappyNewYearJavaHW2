@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42f0a7bf-a30f-4d21-b386-136f18f9a99a" name="Changes" comment="fixed loop checker">
+    <list default="true" id="42f0a7bf-a30f-4d21-b386-136f18f9a99a" name="Changes" comment="fixed some warnings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphRuler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GraphRuler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TopologicalSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TopologicalSort.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/folder2/file22.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/root/folder2/file22.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +26,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2JcsWwB82kOlSyJQ4eLOQNxsn8H" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -114,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672401282390</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fixed some warnings">
+      <created>1672402076399</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1672402076399</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +144,7 @@
     <MESSAGE value="added topology sort" />
     <MESSAGE value="added sort by name" />
     <MESSAGE value="fixed loop checker" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed loop checker" />
+    <MESSAGE value="fixed some warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some warnings" />
   </component>
 </project>

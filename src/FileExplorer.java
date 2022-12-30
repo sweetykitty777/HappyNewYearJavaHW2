@@ -90,6 +90,11 @@ public class FileExplorer {
             for (int i = 0; i < lastNum + 1; i++) {
                 System.out.println(newNumbersMirror.get(ans[i]));
             }
+            try {
+                createOutputFile(ans);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         } else {
             System.out.println("We can not solve it");
         }
@@ -107,7 +112,7 @@ public class FileExplorer {
         while(!isSorted) {
             isSorted = true;
             for (int i = 0; i < files.length - 1; i++) {
-                if(files[i].getName().compareTo(files[i+1].getName()) > 0){
+                if(files[i].getName().compareTo(files[i + 1].getName()) > 0){
                     isSorted = false;
                     tmp = files[i];
                     files[i] = files[i + 1]; // ну дааа пузыреек
@@ -139,4 +144,25 @@ public class FileExplorer {
         }
         graph = graphTemporary;
     }
+
+    private void createOutputFile(int[] answer) throws IOException {
+        try(FileWriter writer = new FileWriter("./src/output.txt", false)) {
+            for (int i = 0; i < lastNum + 1; i++) {
+                BufferedReader reader = new BufferedReader(new FileReader(newNumbersMirror.get(answer[i])));
+                StringBuilder stringBuilder = new StringBuilder();
+                String line = null;
+                String ls = System.getProperty("line.separator");
+                while ((line = reader.readLine()) != null) {
+                    stringBuilder.append(line);
+                    stringBuilder.append(ls);
+                }
+                reader.close();
+                String content = stringBuilder.toString();
+                writer.write(content);
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
 }
