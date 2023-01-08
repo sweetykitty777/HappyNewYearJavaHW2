@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42f0a7bf-a30f-4d21-b386-136f18f9a99a" name="Changes" comment="added file output">
+    <list default="true" id="42f0a7bf-a30f-4d21-b386-136f18f9a99a" name="Changes" comment="fixed some modifiers">
       <change afterPath="$PROJECT_DIR$/src/root/a.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FileExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileExplorer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GraphRuler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoopChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoopChecker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoopChecker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TopologicalSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TopologicalSorter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TopologicalSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TopologicalSorter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/output.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/folder1/file11.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/root/folder2/file21.txt" beforeDir="false" />
@@ -147,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672404789215</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="added documentation">
+      <created>1673169742833</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1673169742833</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -172,6 +179,8 @@
     <MESSAGE value="fixed loop checker" />
     <MESSAGE value="fixed some warnings" />
     <MESSAGE value="added file output" />
-    <option name="LAST_COMMIT_MESSAGE" value="added file output" />
+    <MESSAGE value="added documentation" />
+    <MESSAGE value="fixed some modifiers" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed some modifiers" />
   </component>
 </project>

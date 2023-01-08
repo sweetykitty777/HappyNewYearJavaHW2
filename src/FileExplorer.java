@@ -111,7 +111,6 @@ public class FileExplorer {
         LoopChecker checker = new LoopChecker(graph);
         updateGraph();
         if (!checker.findLoop(newNumbersMirror)) {
-            printGraph();
             TopologicalSorter a = new TopologicalSorter(graph);
             int[] ans = a.topologicalSort();
             for (int i = 0; i < lastNum + 1; i++) {

@@ -13,7 +13,7 @@ public class LoopChecker {
     private static int[][] graph = new int[N][N];
 
     /** Воспомогательное поле для метода dfs, хранит посещенные места */
-    static int[] used;
+    private int[] used;
 
     /** Воспомогательное поле для метода dfs, хранит флаг */
     static int flag;
@@ -23,7 +23,7 @@ public class LoopChecker {
 
     /** Конструктор
      * @param graph - матрица смежности ориентированного графа*/
-    LoopChecker(int[][] graph) {
+    public LoopChecker(int[][] graph) {
         LoopChecker.graph = graph;
         used = new int[N];
         for (int i = 0; i < N; i++) {
@@ -32,7 +32,7 @@ public class LoopChecker {
     }
 
     /** Поиск в глубину*/
-    static void dfs(int v) {
+    private void dfs(int v) {
         if (flag == 1)
             return;
         used[v] = 1;
@@ -56,7 +56,7 @@ public class LoopChecker {
 
     /** Ищет цикл
      * @param names принимает мэп, в котором хранится название файла для каждого из численных обозначений */
-    Boolean findLoop(Map<Integer, String> names) {
+    public Boolean findLoop(Map<Integer, String> names) {
         for (int i = 0; i < N; i++)
             if (used[i] == 0) {
                 dfs(i);
