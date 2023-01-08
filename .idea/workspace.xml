@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42f0a7bf-a30f-4d21-b386-136f18f9a99a" name="Changes" comment="added file output">
-      <change afterPath="$PROJECT_DIR$/src/output.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/root/a.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FileExplorer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/FileExplorer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GraphRuler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoopChecker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TopologicalSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TopologicalSorter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/output.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/folder1/file11.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/folder2/file21.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/root/folder2/file22.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +50,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/olga/IdeaProjects/JavaHW2/src/root"
+    "last_opened_file_path": "/Users/olga/IdeaProjects/JavaHW2"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -51,6 +60,7 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/root" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/root/folder2" />
       <recent name="$PROJECT_DIR$/src/root/folder1" />
@@ -130,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672404690765</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="added file output">
+      <created>1672404789215</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1672404789215</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

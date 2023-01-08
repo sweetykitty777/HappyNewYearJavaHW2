@@ -2,15 +2,26 @@ import java.io.*;
 import java.util.*;
 
 public class FileExplorer {
+
+    /** Поле, содержащее в себе максимальный размер графа*/
     private final int N = 10;
+    /** Поле, содержащее в себе матрицу смежности ориентированного графа*/
     private int[][] graph = new int[N][N];
-   final private String path = "./src/root/";
 
-    private final Map<String, Integer> originNumbers = new HashMap<String, Integer>();
-    private final Map<String, Integer> newNumbers = new HashMap<String, Integer>();
-    private final Map<Integer, String> newNumbersMirror = new HashMap<Integer, String>();
+    /** Поле, содержащее в себе путь до файла*/
+    final private String path = "./src/root/";
 
-    int lastNum = -1;
+    /** Поле, содержащее в себе то, как соотносятся пути до файлов и их номера*/
+    private final Map<String, Integer> originNumbers = new HashMap<>();
+
+    /** Поле, содержащее в себе то, как соотносятся пути до файлов и их номера после сортировки по названию*/
+    private final Map<String, Integer> newNumbers = new HashMap<>();
+
+    /** Поле, содержащее в себе то, как номера файлов и пути до файлов после сортировки по названию*/
+    private final Map<Integer, String> newNumbersMirror = new HashMap<>();
+
+    /** Количество файлов в зависимости */
+    private int lastNum = -1;
     public FileExplorer() {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
@@ -19,19 +30,28 @@ public class FileExplorer {
         }
     }
 
+    /** Создание графа*/
     public void createGraph() {
-        findFoldersAndFiles(path);
+        File place = new File(path);
+        if (!place.exists()) {
+            System.out.println("Верните фолдер root туда, где взяли, пожалуйста");
+        } else {
+            findFoldersAndFiles(path);
+        }
     }
 
-   /* public void printGraph() {
+    /** Печать графа*/
+    public void printGraph() {
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
                 System.out.print(graph[i][j]);
             }
             System.out.println("");
         }
-    }*/
+    }
 
+    /** Поиск зависимостей
+     * @param pathToFile - путь к папке*/
     private void findFoldersAndFiles(String pathToFile) {
         File place = new File(pathToFile);
         if (place.exists() && place.isDirectory()) {
@@ -41,22 +61,25 @@ public class FileExplorer {
                     findFoldersAndFiles(item.getPath());
                 }
             }
-        } else {
+        } else if (place.exists() && place.isFile()) {
             FileReader fr = null;
             try {
                 fr = new FileReader(pathToFile);
             } catch (FileNotFoundException e) {
-                throw new RuntimeException(e);
+                System.out.println(e.getMessage());
             }
-            BufferedReader reader = new BufferedReader(fr);
-            String line = null;
+            BufferedReader reader = null;
+            if (fr != null) {
+                reader = new BufferedReader(fr);
+            }
+            String line;
             try {
                 line = reader.readLine();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             while (line != null) {
-                if (line.startsWith("require")) { // проверить формат
+                if (line.startsWith("require")) {
                     String address = line.substring(8);
                     File reqFile = new File(address);
 
@@ -75,18 +98,22 @@ public class FileExplorer {
                 try {
                     line = reader.readLine();
                 } catch (IOException e) {
-                    throw new RuntimeException(e);
+                    System.out.println(e.getMessage());
                 }
             }
+        } else if (!place.exists()) {
+            System.out.println(place + " не существует");
         }
     }
 
+    /** Поиск и вывод ответа*/
     public void solve() {
-        GraphRuler rule = new GraphRuler(graph);
+        LoopChecker checker = new LoopChecker(graph);
         updateGraph();
-        if (!rule.findLoop(newNumbersMirror)) {
-            TopologicalSort a = new TopologicalSort(graph);
-            int[] ans = a.topological_sort();
+        if (!checker.findLoop(newNumbersMirror)) {
+            printGraph();
+            TopologicalSorter a = new TopologicalSorter(graph);
+            int[] ans = a.topologicalSort();
             for (int i = 0; i < lastNum + 1; i++) {
                 System.out.println(newNumbersMirror.get(ans[i]));
             }
@@ -100,6 +127,7 @@ public class FileExplorer {
         }
     }
 
+    /** Сортировка по имени*/
     public File[] sortFileNames() {
         ArrayList<String> paths = new ArrayList<>(originNumbers.keySet());
         File[] files = new File[lastNum + 1];
@@ -122,6 +150,8 @@ public class FileExplorer {
         }
         return files;
     }
+
+    /** Изменение нумерации в соответствии с сортировкой по имени*/
     public void updateGraph() {
         File[] sorted = sortFileNames();
         int last = -1;
@@ -145,12 +175,13 @@ public class FileExplorer {
         graph = graphTemporary;
     }
 
+    /** Вывод файла с ответом*/
     private void createOutputFile(int[] answer) throws IOException {
         try(FileWriter writer = new FileWriter("./src/output.txt", false)) {
             for (int i = 0; i < lastNum + 1; i++) {
                 BufferedReader reader = new BufferedReader(new FileReader(newNumbersMirror.get(answer[i])));
                 StringBuilder stringBuilder = new StringBuilder();
-                String line = null;
+                String line;
                 String ls = System.getProperty("line.separator");
                 while ((line = reader.readLine()) != null) {
                     stringBuilder.append(line);

@@ -1,22 +1,37 @@
 import java.util.Map;
 import java.util.Vector;
 
-public class GraphRuler {
+/**
+ * Класс, проверяющий граф на наличие циклов
+ */
+public class LoopChecker {
+
+    /** Поле, содержащее в себе максимальный размер графа*/
     private static final int N = 10;
+
+    /** Поле, содержащее в себе граф*/
     private static int[][] graph = new int[N][N];
 
+    /** Воспомогательное поле для метода dfs, хранит посещенные места */
     static int[] used;
+
+    /** Воспомогательное поле для метода dfs, хранит флаг */
     static int flag;
+
+    /** Воспомогательное поле для метода dfs, здесь окажется цикл*/
     static Vector<Integer> path = new Vector<Integer>();
 
-    GraphRuler(int[][] graph) {
-        GraphRuler.graph = graph;
+    /** Конструктор
+     * @param graph - матрица смежности ориентированного графа*/
+    LoopChecker(int[][] graph) {
+        LoopChecker.graph = graph;
         used = new int[N];
         for (int i = 0; i < N; i++) {
             used[i] = 0;
         }
     }
 
+    /** Поиск в глубину*/
     static void dfs(int v) {
         if (flag == 1)
             return;
@@ -39,6 +54,8 @@ public class GraphRuler {
         path.remove(path.size() - 1);
     }
 
+    /** Ищет цикл
+     * @param names принимает мэп, в котором хранится название файла для каждого из численных обозначений */
     Boolean findLoop(Map<Integer, String> names) {
         for (int i = 0; i < N; i++)
             if (used[i] == 0) {
